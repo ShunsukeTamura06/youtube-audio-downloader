@@ -1,6 +1,5 @@
 import yt_dlp
 import os
-import sys
 
 def download_youtube_audio(url, output_path='./downloads'):
     # ダウンロードフォルダを作成
@@ -17,7 +16,7 @@ def download_youtube_audio(url, output_path='./downloads'):
             'preferredcodec': 'mp3',
             'preferredquality': '192',
         }],
-        'cookiesfrom': 'chrome',  # chrome, firefox, edge, safari等
+        'cookies_from_browser': ('chrome',),  # chrome, firefox, edge, safari等
         'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
         'extractor_args': {
             'youtube': {
@@ -107,7 +106,7 @@ def download_with_browser_cookies(url, browser='chrome', output_path='./download
             'preferredcodec': 'mp3',
             'preferredquality': '192',
         }],
-        'cookiesfrom': browser,  # 'chrome', 'firefox', 'edge', 'safari'
+        'cookies_from_browser': (browser,),  # 'chrome', 'firefox', 'edge', 'safari'
     }
     
     try:
